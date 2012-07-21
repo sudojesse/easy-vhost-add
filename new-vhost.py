@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+from time import sleep
 
 name = raw_input('Enter the name of your desired virtual host, followed by [ENTER]: ')
 
@@ -36,7 +37,13 @@ else:
 		print 'added config to /etc/hosts'
 	
 	#restart apache
+	print 'restarting apache...'
 	os.system('sudo apachectl restart')
 	
+	
+	#wait for apache to restart
+	sleep(5)
+	
+	print 'done! :)'
 	#open the docRoot in a web browser
 	os.system('open http://'+name)
