@@ -21,17 +21,17 @@ else:
 		with open('index.html', 'wb') as index:
 			index.write('hello world!')
 	#add the stuff to /etc/apache2/extra/httpd-vhosts.conf
-	with open('/etc/apache2/extra/httpd-vhosts.conf', 'a') as vhosts:
-		config='<VirtualHost *:80>\
-    				DocumentRoot "'+docRoot+'"\
-    				ServerName '+name+'\
-				</VirtualHost>'
-		vhosts.write(config)
-		print 'added config to /etc/apache2/extra/httpd-vhosts.conf'
+	vhosts = open('/etc/apache2/extra/httpd-vhosts.conf', 'a')
+	vhosts.write('<VirtualHost *:80>\n')
+	vhosts.write("		DocumentRoot "+docRoot+'\n')
+	vhosts.write("		ServerName "+name+'\n')
+	vhosts.write("</VirtualHost>\n")
+	vhosts.close()
+	print 'added config to /etc/apache2/extra/httpd-vhosts.conf'
 	
 	#add the stuff to /etc/hosts
 	with open('/etc/hosts', 'a') as hosts:
-		config='127.0.0.1		'+name
+		config='127.0.0.1	'+name+'\n'
 		hosts.write(config)
 		print 'added config to /etc/hosts'
 	

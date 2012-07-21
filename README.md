@@ -1,4 +1,4 @@
-easy-vhost-add
-==============
+#Easy Virtual Host Creation for Mac OS X
 
-This shell script allows for easy virtual host creation on Mac OS X
+##Usage
+	
